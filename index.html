@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/styles.css">
@@ -8,24 +12,25 @@
 </head>
 <body>
     <div class="box">
-    <form>
-        <input type="search" placeholder="enter a city" required id="">
-        <input type="submit" value="search">
+    <form class="gennaro" id="gennaro">
+        <input type="search" placeholder="enter a city" required id="search-input" class="search-input">
+        <input type="submit" value="search" class="submit-button">
     </form>
     <main>
+        <div class="weather-info">
         <div>  
-        <h1>Tokyo</h1>
-        <p>
+        <h1 class="city">Tokyo</h1>
+        <p class="info">
             Monday 14:30, scattered clouds<br>
-            Humidity 54% Wind 1.3 km/h
+            Humidity <strong>54%</strong> Wind <strong>1.3 km/h</strong>
         </p> 
         </div>
-        <div>
+        <div class="celsius">
            <p>
-            ☀️10°C
+          <span class="icon">☀️</span><span class="temp">10 <span class="cel">°C</span></span> 
         </p> 
         </div>
-        
+        </div>
     </main>
     <footer>Coded by <a href="https://github.com/GGaudio96" target="_blank">Giulia Gaudio</a> code hosted on <a href="https://github.com/GGaudio96/Meteo-shecodes-app" target="_blank">GitHub</a> and website hosted on <a href="https://meteo-shecodes-app-week7.netlify.app/" target="_blank">Netlify</a> </footer>
 </div>
