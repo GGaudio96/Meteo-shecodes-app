@@ -30,7 +30,7 @@ function updateWeather(response) {
     descriptionElement.innerHTML = response.data.condition.description;
     humidityElement.innerHTML =`${response.data.temperature.humidity}%`;
     speedElement.innerHTML =`${response.data.wind.speed}km/h`;
-    temperatureElement.innerHTML = Math.round(temperature);
+    temperatureElement.innerHTML = `${Math.round(temperature)}°C`;
 
 }
 
