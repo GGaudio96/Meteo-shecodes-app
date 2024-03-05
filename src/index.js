@@ -50,3 +50,45 @@ function formatDate(date) {
 
     return `${day} ${hours}:${minutes}`;
 }
+
+function displayForecast() {
+
+    let forecastElement = document.querySelector("#forecast");
+
+    let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+    let forecastHtml = ""
+
+    days.forEach(function (day) {
+forecastHtml = 
+forecastHtml + `
+ <div class="row">
+                <div class="column-2"> 
+                    <div class="weather-forecast-date">
+                    ${day}
+                </div>
+                    <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"alt="" width="38"> 
+                    <div class="weather-forecast-temperature">
+                    <span class="max-temperature">
+                       18
+                    </span>
+                    <span class="min-temperature">
+                        12
+                    </span>  
+                    </div>
+                  
+                </div>
+            </div>
+
+`;
+    });
+
+    forecastElement.innerHTML = forecastHtml
+
+
+ 
+}
+
+
+displayForecast();
+
+
