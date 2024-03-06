@@ -50,6 +50,10 @@ function formatDate(date) {
     ];
     let day = days[date.getDay()];
 
+    if (minutes > 10) {
+        minutes = `0${minutes}`;
+    }
+
     return `${day} ${hours}:${minutes}`;
 }
 
@@ -57,24 +61,24 @@ function displayForecast(response) {
 
     let forecastElement = document.querySelector("#forecast");
 
-    let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
     let forecastHtml = ""
 
-    days.forEach(function (day) {
+    response.data.daily.forEach(function (day, index) {
+        if (index > 5) {
 forecastHtml = 
 forecastHtml + `
  <div class="row">
                 <div class="column-2"> 
                     <div class="weather-forecast-date">
-                    ${day}
+                ${formatDay(day.time)}
                 </div>
-                    <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"alt="" width="38"> 
+                    <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"alt=" width="38"> 
                     <div class="weather-forecast-temperature">
                     <span class="max-temperature">
-                       18
+                       ${Math.round(day.temperature.maximum)}
                     </span>
                     <span class="min-temperature">
-                        12
+                        ${Math.round(day.temperature.minimum)}
                     </span>  
                     </div>
                   
@@ -82,17 +86,15 @@ forecastHtml + `
             </div>
 
 `;
+}
     });
+
 
     forecastElement.innerHTML = forecastHtml
 
 
  
 }
-
-searchCity("Paris");
-
-
 
 function getForecast(city) {
     let apiKey = "35b4b416c408f4a70ee442o1td5f0b38";
@@ -101,3 +103,11 @@ function getForecast(city) {
 }
 
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+
+searchCity("Istanbul");
