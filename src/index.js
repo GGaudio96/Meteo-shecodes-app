@@ -32,6 +32,8 @@ function updateWeather(response) {
     speedElement.innerHTML =`${response.data.wind.speed}km/h`;
     temperatureElement.innerHTML = `${Math.round(temperature)}°C`;
 
+    getForecast(response.data.city);
+
 }
 
 function formatDate(date) {
@@ -51,7 +53,7 @@ function formatDate(date) {
     return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
 
     let forecastElement = document.querySelector("#forecast");
 
@@ -88,7 +90,14 @@ forecastHtml + `
  
 }
 
+searchCity("Paris");
 
-displayForecast();
+
+
+function getForecast(city) {
+    let apiKey = "35b4b416c408f4a70ee442o1td5f0b38";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`
+    axios(apiUrl).then(displayForecast)
+}
 
 
