@@ -64,7 +64,7 @@ function displayForecast(response) {
     let forecastHtml = ""
 
     response.data.daily.forEach(function (day, index) {
-        if (index > 5) {
+        if (index < 5) {
 forecastHtml = 
 forecastHtml + `
  <div class="row">
@@ -75,10 +75,10 @@ forecastHtml + `
                     <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"alt=" width="38"> 
                     <div class="weather-forecast-temperature">
                     <span class="max-temperature">
-                       ${Math.round(day.temperature.maximum)}
+                       ${Math.round(day.temperature.maximum)}°
                     </span>
                     <span class="min-temperature">
-                        ${Math.round(day.temperature.minimum)}
+                        ${Math.round(day.temperature.minimum)}°
                     </span>  
                     </div>
                   

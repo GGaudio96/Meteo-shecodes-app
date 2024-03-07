@@ -62,8 +62,18 @@ main {
 }
 
 .celsius {
-    display: flex;
+    display: block;
     color: pink;
+    margin-left: 0px;
+    font-size: 88px;
+    
+  
+
+}
+
+p {
+    display: block;
+    margin: 0 auto;
 }
 
 .temp {
@@ -82,7 +92,7 @@ main {
 }
 
 .weather-info {
-    display: flex;
+    display: block;
     justify-content: space-between;
 }
 
@@ -94,7 +104,9 @@ footer {
 }
 
 .weather-forecast {
-    margin-top: 20px;
+
+    display: flex;
+    justify-content: space-around;
     text-align: center;
 }
 
